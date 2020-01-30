@@ -16,7 +16,7 @@
 # 解题方法来自integer_break.py文件中动态规划公式的推导过程，和这道题属于"同根生"
 def integer_break_II(n):
     res = 0
-    dp = [n for i in xrange(n + 1)]
+    dp = [n + 1 for i in xrange(n + 1)]
     dp[1] = 1
     dp[2] = 3
     dp[3] = 4
@@ -25,10 +25,11 @@ def integer_break_II(n):
             if i % j == 0:
                 # 因为dp[i]保存了每次的结果，同时由于涉及到了同一个位置多次比较，所以dp[i]被写在了min()中
                 dp[i] = min(dp[i], dp[i / j] + j, i / j + j)
+                # print "dp[" + str(i) + "] : " + str(dp[i])
 
     return dp[-1]
 
 
 if __name__ == '__main__':
-    for i in xrange(4, 140):
+    for i in xrange(4, 200):
         print str(i) + " : " + str(integer_break_II(i))
