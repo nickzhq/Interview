@@ -17,7 +17,8 @@ def func(n):
     :param n: int
     :return: List[int]
     """
-    res = [ x for x in xrange(10) ]
+    # todo
+    res = []
 
     return res
 
